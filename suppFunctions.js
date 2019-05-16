@@ -68,10 +68,18 @@ function findPrevious(list, item){
             console.log(currNode.value)
         } 
             currNode = currNode.next;
-
-        
     }
-
-
 }
 findPrevious(SLL, 'Kat')
+
+function findLast(list){
+    let currNode = list.head
+  
+    while(currNode.next !== null){
+        currNode = currNode.next;
+    }
+    if( currNode.next === null){
+        console.log(currNode.value)
+    } 
+}
+findLast(SLL)
