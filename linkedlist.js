@@ -32,6 +32,28 @@ class LinkedList {
     }
   }
 
+  insertAt(item, pos){
+    let counter=1;
+    if (!this.head) {
+      return null;
+    }
+
+    let currNode = this.head;
+    let previousNode = this.head;
+
+    while((currNode !== null) && (counter < pos)) {
+      previousNode = currNode;
+      currNode = currNode.next;
+      counter ++;
+    }
+    if (currNode === null) {
+      console.log('Item not found');
+      return;
+    }
+    let newNode = new _Node (item, currNode);
+    previousNode.next = newNode;
+  }
+
   insertBefore(itemToAdd, item) {
     // current node start at the head -- .find()
     // current node travels through list until it finds item -- .find()
@@ -138,7 +160,9 @@ function main(){
   SLL.insertBefore('Athena', 'Boomer')
   SLL.insertAfter('Hotdog', 'Helo');
 
-  console.log(SLL.find('Hotdog'));
+  SLL.insertAt('Kat', 3)
+
+  console.log(SLL.find('Athena'));
 }
 
 main();
