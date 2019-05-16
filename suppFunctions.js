@@ -24,7 +24,7 @@ function main(){
     SLL.insertAfter('Hotdog', 'Helo');
   
     SLL.insertAt('Kat', 3)
-    SLL.remove('Tauhida')
+    // SLL.remove('Tauhida')
   
   }
   
@@ -93,12 +93,6 @@ function findLast(list){
 
 // 5. Reverse list
 function reverseList(oldList, newList){
-   // check if old list is empty, if not: 
-    // set current node = head
-    // while current node !== null, copy current node, then keep moving
-    // in the new list, insert copied node as first item 
-    // and set new nodes pointer to head
-
     if(!oldList.head) {
         return null;
     }
@@ -116,4 +110,58 @@ function reverseList(oldList, newList){
     display(newList);
 }
 
-reverseList(SLL, reversedList);
+// reverseList(SLL, reversedList);
+
+
+// 6. 3rd from last
+function thirdFromLast(list){
+    // check if list is empty
+    // set currNode to traverse the list
+    // set previousNode behind CurrNode
+    // set thirdPrevious behind previousNode
+    // get value of thirdPrevious
+
+    if(!list.head) {
+        return null;
+    }
+
+    let currNode = list.head.next.next;
+    let previousNode = list.head.next;
+    let thirdPreviousNode = list.head;
+
+    while(currNode.next !== null) {
+        currNode = currNode.next;
+        previousNode = previousNode.next;
+        thirdPreviousNode = thirdPreviousNode.next;
+    }
+    console.log(thirdPreviousNode.value)
+}
+
+// thirdFromLast(SLL);
+
+// 7. Middle of a last
+function middleOfList(list){
+    let currNode = list.head
+    let counter = 0
+    let counter2 = 0;
+    let middleItem = 0;
+    while(currNode !== null){
+        currNode = currNode.next;
+        counter ++
+    }
+
+    middleItem = Math.floor(counter / 2);
+    console.log(middleItem);
+
+    if(middleItem !== 0) {
+        currNode = list.head
+        while((currNode !== null) && (counter2 < middleItem)) {
+        currNode = currNode.next;
+        counter2++;
+        }  
+        console.log(currNode.value)
+    }
+} 
+display(SLL);
+middleOfList(SLL);
+
