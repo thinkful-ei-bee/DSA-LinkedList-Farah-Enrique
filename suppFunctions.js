@@ -1,5 +1,6 @@
 const LinkedList = require('./LinkedList');
 const SLL = new LinkedList();
+const reversedList = new LinkedList();
 const _Node = require('./linkedlist.js')
 const Node = new _Node();
 
@@ -37,7 +38,7 @@ let currNode = list.head
     }
 }
 
-display(SLL)
+// display(SLL)
 
 function size(list){
     let currNode = list.head
@@ -48,7 +49,7 @@ function size(list){
     }
     console.log(counter)
 }
-size(SLL)
+// size(SLL)
 
 function isEmpty(list){
     if (list.head === null){
@@ -58,7 +59,7 @@ function isEmpty(list){
     }
 }
 
-isEmpty(SLL)
+// isEmpty(SLL)
 
 function findPrevious(list, item){
     let currNode = list.head
@@ -70,7 +71,7 @@ function findPrevious(list, item){
             currNode = currNode.next;
     }
 }
-findPrevious(SLL, 'Kat')
+//findPrevious(SLL, 'Kat')
 
 function findLast(list){
     let currNode = list.head
@@ -82,4 +83,37 @@ function findLast(list){
         console.log(currNode.value)
     } 
 }
-findLast(SLL)
+//findLast(SLL)
+
+
+
+// 4. Mystery function 
+// It's removing repeats. 
+// O(n)
+
+// 5. Reverse list
+function reverseList(oldList, newList){
+   // check if old list is empty, if not: 
+    // set current node = head
+    // while current node !== null, copy current node, then keep moving
+    // in the new list, insert copied node as first item 
+    // and set new nodes pointer to head
+
+    if(!oldList.head) {
+        return null;
+    }
+
+    let currNode = oldList.head;
+    let nodeValue;
+    while(currNode !== null) {
+        //console.log(currNode.value)
+        nodeValue = currNode.value;
+       // console.log(nodeValue);
+        newList.insertFirst(nodeValue);
+        currNode = currNode.next;
+    }
+
+    display(newList);
+}
+
+reverseList(SLL, reversedList);
