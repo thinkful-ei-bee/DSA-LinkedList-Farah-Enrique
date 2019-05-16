@@ -47,7 +47,7 @@ class LinkedList {
       counter ++;
     }
     if (currNode === null) {
-      console.log('Item not found');
+      console.log('Item not found-insertAt');
       return;
     }
     let newNode = new _Node (item, currNode);
@@ -71,7 +71,7 @@ class LinkedList {
       currNode = currNode.next;
     }
     if (currNode === null) {
-      console.log('Item not found');
+      console.log('Item not found-insertBefore');
       return;
     }
     let newNode = new _Node (itemToAdd, currNode);
@@ -92,7 +92,7 @@ class LinkedList {
       }
 
       if (currNode === null) {
-        console.log('Item not found');
+        console.log('Item not found-insertAfter');
         return;
       }
 
@@ -136,7 +136,7 @@ class LinkedList {
       currNode = currNode.next;
     }
     if (currNode === null) {
-      console.log('Item not found');
+      console.log('Item not found-remove');
       return;
     }
     previousNode.next = currNode.next;
@@ -155,14 +155,14 @@ function main(){
   SLL.insertLast('Tauhida');
 
   SLL.find('Tauhida');
-  SLL.remove('squirrel');
+  // SLL.remove('squirrel');
 
   SLL.insertBefore('Athena', 'Boomer')
   SLL.insertAfter('Hotdog', 'Helo');
 
   SLL.insertAt('Kat', 3)
-
-  console.log(SLL.find('Athena'));
+  SLL.remove('Tauhida')
+  console.log(SLL.find('Tauhida'));
 }
 
 main();
